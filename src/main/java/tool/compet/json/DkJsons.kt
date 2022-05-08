@@ -15,10 +15,6 @@ class DkJsons private constructor() {
 	companion object {
 		private val gson: Gson
 
-		private var INS: DkJsons? = null
-		val ins: DkJsons
-			get() = if (INS != null) INS!! else DkJsons().also { INS = it }
-
 		init {
 			gson = GsonBuilder()
 				.setDateFormat(DkDateTimeConst.DATETIME)
@@ -45,7 +41,7 @@ class DkJsons private constructor() {
 		}
 
 		/**
-		 * Converts POJO to JSON.
+		 * Converts Expose-annotated POJO to JSON.
 		 */
 		fun obj2json(obj: Any?): String {
 			return gson.toJson(obj)
