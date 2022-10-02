@@ -30,7 +30,7 @@ class DkJsons private constructor() {
 		 *
 		 * @return POJO object if succeed. Otherwise returns null.
 		 */
-		fun <T> json2obj(json: String?, classOfT: Class<T>): T? {
+		fun <T> toObj(json: String?, classOfT: Class<T>): T? {
 			try {
 				return gson.fromJson(json, classOfT)
 			}
@@ -43,7 +43,7 @@ class DkJsons private constructor() {
 		/**
 		 * Converts Expose-annotated POJO to JSON.
 		 */
-		fun obj2json(obj: Any?): String {
+		fun toJson(obj: Any?): String {
 			return gson.toJson(obj)
 		}
 	}
